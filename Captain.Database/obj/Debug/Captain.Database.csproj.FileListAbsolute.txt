@@ -1,0 +1,14 @@
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\bin\Debug\Captain.Database.dll
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\bin\Debug\Captain.Database.pdb
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\bin\Debug\Microsoft.Practices.Unity.dll
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\obj\Debug\Captain.Database.csproj.AssemblyReference.cache
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\obj\Debug\Captain.Database.csproj.CoreCompileInputs.cache
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\obj\Debug\Captain.Database.csproj.CopyComplete
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\obj\Debug\Captain.Database.dll
+E:\CAPTAINWisej\Captain-Wisej-v2-3.1\Captain.Database\obj\Debug\Captain.Database.pdb

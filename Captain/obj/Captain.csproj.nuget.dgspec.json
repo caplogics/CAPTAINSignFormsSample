@@ -1,0 +1,230 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Captain-Wisej_Sample\\Captain\\Captain.csproj": {}
+  },
+  "projects": {
+    "E:\\Captain-Wisej_Sample\\Captain.Common\\Captain.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Captain-Wisej_Sample\\Captain.Common\\Captain.Common.csproj",
+        "projectName": "Captain.Common",
+        "projectPath": "E:\\Captain-Wisej_Sample\\Captain.Common\\Captain.Common.csproj",
+        "packagesPath": "C:\\Users\\sudhe\\.nuget\\packages\\",
+        "outputPath": "E:\\Captain-Wisej_Sample\\Captain.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sudhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "E:\\Captain-Wisej_Sample\\Captain.Database\\Captain.Database.csproj": {
+                "projectPath": "E:\\Captain-Wisej_Sample\\Captain.Database\\Captain.Database.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "AWSSDK.Core": {
+              "target": "Package",
+              "version": "[3.7.300.23, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.304.12, )"
+            },
+            "FreeSpire.PDF": {
+              "target": "Package",
+              "version": "[8.6.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.30.1, )"
+            },
+            "Microsoft.ReportingServices.ReportViewerControl.WebForms": {
+              "target": "Package",
+              "version": "[150.1576.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
+            },
+            "Syncfusion.Licensing": {
+              "target": "Package",
+              "version": "[21.2.3, )"
+            },
+            "Syncfusion.XlsIO.WinForms": {
+              "target": "Package",
+              "version": "[21.2.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.30.1, )"
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.3.7, )"
+            },
+            "Twilio": {
+              "target": "Package",
+              "version": "[6.15.2, )"
+            },
+            "Wisej-2-VisualStudioDesigner": {
+              "target": "Package",
+              "version": "[2.5.20, )"
+            },
+            "Wisej-3": {
+              "target": "Package",
+              "version": "[3.5.11, )"
+            },
+            "Wisej-3-AspNetControl": {
+              "target": "Package",
+              "version": "[3.5.11, )"
+            },
+            "Wisej-3-ColumnFilter": {
+              "target": "Package",
+              "version": "[3.5.11, )"
+            },
+            "Wisej-3-DxDashboard": {
+              "target": "Package",
+              "version": "[3.5.11, )"
+            },
+            "Wisej-3-NavigationBar": {
+              "target": "Package",
+              "version": "[3.5.11, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "E:\\Captain-Wisej_Sample\\Captain.Database\\Captain.Database.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Captain-Wisej_Sample\\Captain.Database\\Captain.Database.csproj",
+        "projectName": "Captain.Database",
+        "projectPath": "E:\\Captain-Wisej_Sample\\Captain.Database\\Captain.Database.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "E:\\Captain-Wisej_Sample\\Captain\\Captain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Captain-Wisej_Sample\\Captain\\Captain.csproj",
+        "projectName": "Captain",
+        "projectPath": "E:\\Captain-Wisej_Sample\\Captain\\Captain.csproj",
+        "packagesPath": "C:\\Users\\sudhe\\.nuget\\packages\\",
+        "outputPath": "E:\\Captain-Wisej_Sample\\Captain\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sudhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "E:\\Captain-Wisej_Sample\\Captain.Common\\Captain.Common.csproj": {
+                "projectPath": "E:\\Captain-Wisej_Sample\\Captain.Common\\Captain.Common.csproj"
+              },
+              "E:\\Captain-Wisej_Sample\\Captain.Database\\Captain.Database.csproj": {
+                "projectPath": "E:\\Captain-Wisej_Sample\\Captain.Database\\Captain.Database.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.3.7, )"
+            },
+            "Twilio": {
+              "target": "Package",
+              "version": "[6.15.2, )"
+            },
+            "Wisej-3": {
+              "target": "Package",
+              "version": "[3.5.11, )"
+            },
+            "Wisej-3-AspNetControl": {
+              "target": "Package",
+              "version": "[3.5.11, )"
+            },
+            "Wisej-3-ColumnFilter": {
+              "target": "Package",
+              "version": "[3.5.11, )"
+            },
+            "Wisej-3-NavigationBar": {
+              "target": "Package",
+              "version": "[3.5.11, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,357 @@
+{
+	"name": "NavigationBar.mixin",
+	"images": {
+		"navbar-open": "",
+		"navbar-close": "",
+		"navbar-shortcut": "",
+		"navbar-sel-icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAYAAAAv3j5gAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAAD14AAA9eAQXNOC0AAAQ4SURBVEhLhZZraFdlHICnlTZTJAPTcJrNdFCSFUuzdKNc001Nm9ec5WzOVFKz5qWWJ83G0gmRoIIlhCh2gwrKD1LR5UNK0pegkvCLjCCCPlQfhPLtec7eM89/HfAPz977+/7uZ2VJklyVkCTXhBDuhsWwDjZAy+UQHqYdVXSmP4WTGVxyR7x4K6yGuZdCeJAH7qc/C5bCJmiPa0OK7pHCSQ7dCEq9BarhuqJ9GayPgRXwEkwv2vO/CTZOhFegrmQthPLfQpiM1HVQz3rtHyGMz+9h7hZQ++b8vJQM2DAe9sBt2RyX3cp4I7wBL0MzLIcWcG83aMLy3D1PQUs2lr4OC6PgdahK5zDXXyEsYrwPnoX5UEtgpGYMIRnEWM0eh93Qhe+m5O7T7Euycf6hmXAYNoMa6OB3YQlMhwYwIPSF2i2AJ6EOpoHnjkEbPAMdsCcTrO+h/rBJiYdABZoZED70GGi+zwClU40b8dm9tKNhqJoW3VcyYKPRNoGDM37slbQJ1EC/GOZqeQDOwjvwPKyHVfAELEKoBs4/QL8ShucfGsCEJjHStsNH8Bz4gOaRZbASNNVJ+AHej3P6yPVHwb0GykH8dYR2B+yFO8uYMJw1x81QDko5J4TLFbRVcB/cBVaGcWCizoWnYQJMgqmgedVCFLJRTdBwNv21musRUApbJTQsB3wbwkNgaF8POlZtDJJWTLOLdmkPkcpFi72Qsed9YKbRh68G09cyRnKHG2o5+DaL7E/NqGbD4WPYHS/RH17S/UUIt58L4ShnDBRN9T1UfI3k3KEPW3n8NG09OWh1qYF2L6lh4S0OHqLvA6JmO6kEn9Ja706AJhv6HtnPQ0fiQ5203TzwGnNG3zbmLLzzQF/uj4Ku8485oFlMSCPIrDZBCdU0pB1rgjEe4tIKBHC9ETxjGqiJkafWBkel+2jV2LLU5sGb6GzxEhLDQy9CbZTkHnBjZRzraJ2v9ppzWJy3dLmPgEgrxlpYENc0XXOWP4bh6Ng3EV004tTWZBwb1/z+WC2QL/wKmQDxkZTJYBTXxDUfnZo9pE3TioutDWElNoT1w+y4x2/QL+DvX8AlgcAMy+M6PkwjzbDvSpIwkFZrKfig9CGi4wYGJuyIeCjzkxIqrTl0Hop+/4AF1KI8H/910U6K96yBBvvpQ3HSstGejbGNofkm+An4Gf6E30FN+v/U8CAch8xkCvcCXOu476G4aL1anY2pd4bqd/A3XISfwLxxznp3Br6KfP4J/on3GDCdkPpdSh4SFlvBAjo4nev9TFuWrG1fwgXwwW/gFHxAhWjKnbccvUpujsvmpK+Th43Gv2WnumQNScncmg8pN/SnJT1X/gNir463OPspH1lyDkoGedhsbvgBM1mNwJL/D+KeYWDRNXhMkTRCiyiczMNhH1wYL7NyaFZD2NYc8VtlvhV+8HpJyv4DvVwLcGORg3QAAAAASUVORK5CYII="
+	},
+	"colors": {
+		"navbar-background": "transparent",
+		"navbar-background-hover": "#F0F1F2",
+		"navbar-background-selected": "#0E6AAD",
+		"navbar-text": "#000000",
+		"navbar-text-hover": "#C4922F",
+		"navbar-text-selected": "#06437D",
+		"navbar-sub-text-selected": "#FFFFFF",
+		"navbar-sub-text": "#565C62",
+		"navbar-sub-background-unselected": "#F0F1F2"
+	},
+	"appearances": {
+		"navbar": {
+			"states": {
+				"default": {
+					"styles": {
+						"transition": "width 250ms"
+					},
+					"properties": {
+						"textColor": "navbar-text",
+						"backgroundColor": "navbar-background"
+					}
+				}
+			},
+			"components": {
+				"user-info": {
+					"states": {
+						"default": {
+						}
+					}
+				},
+				"user-avatar": {
+					"states": {
+						"default": {
+							"styles": {
+								"width": 1,
+								"color": "#DCE3E3",
+								"backgroundColor": "#DCE3E3"
+							}
+						}
+					}
+				},
+				"user-status": {
+					"states": {
+						"default": {
+						}
+					}
+				}
+			}
+		},
+		"navbar-item": {
+			"states": {
+				"default": {
+					"styles": {
+						"transform": "translateZ(0)",
+						"transition": "height 250ms, top 250ms"
+					}
+				}
+			},
+			"components": {
+				"info": {
+					"states": {
+						"default": {
+							"styles": {
+								"radius": 4
+							}
+						}
+					}
+				},
+				"header": {
+					"states": {
+						"default": {
+							"properties": {
+								"textColor": "inherit",
+								"backgroundColor": "transparent",
+								"paddingLeft": -1
+							}
+						},
+						"selected": {
+							"properties": {
+								"textColor": "navbar-sub-text-selected",
+								"backgroundColor": "navbar-background-selected",
+								"icon": "navbar-sel-icon"
+							}
+						},
+						"hovered": {
+						}
+					}
+				},
+				"open": {
+					"states": {
+						"default": {
+							"styles": {
+								"transform": "rotateZ(0deg)",
+								"transition": "transform 250ms"
+							},
+							"properties": {
+								"source": "icon-down",
+								"backgroundColor": "transparent"
+							}
+						},
+						"open": {
+							"styles": {
+								"transform": "rotateZ(180deg)"
+							}
+						}
+					}
+				}
+			}
+		},
+		"navbar-item-main": {
+			"states": {
+				"default": {
+					"styles": {
+						"transform": "translateZ(0)",
+						"backgroundColor": "transparent",
+						"transition": "height 250ms, top 250ms"
+					}
+				}
+			},
+			"components": {
+				"info": {
+					"states": {
+						"default": {
+							"styles": {
+								"radius": 4
+							}
+						}
+					}
+				},
+				"header": {
+					"inherit": "navbar/header",
+					"states": {
+						"default": {
+							"styles": {
+								"color": "transparent",
+								"styleLeft": "solid",
+								"widthLeft": 5
+							},
+							"properties": {
+								"font": "menu",
+								"textColor": "inherit",
+								"backgroundColor": "transparent"
+							}
+						},
+						"selected": {
+							"styles": {
+								"color": "navbar-background-selected",
+								"styleLeft": "solid",
+								"widthLeft": 5
+							},
+							"properties": {
+								"font": "menuBold",
+								"textColor": "navbar-text-selected"
+							}
+						},
+						"hovered": {
+							"properties": {
+								"textColor": "navbar-text-hover",
+								"backgroundColor": "navbar-background-hover"
+							}
+						}
+					}
+				},
+				"open": {
+					"states": {
+						"default": {
+							"styles": {
+								"transform": "rotateZ(0deg)",
+								"transition": "transform 250ms"
+							},
+							"properties": {
+								"source": "icon-down",
+								"backgroundColor": "transparent"
+							}
+						},
+						"open": {
+							"styles": {
+								"transform": "rotateZ(180deg)"
+							}
+						}
+					}
+				}
+			}
+		},
+		"navbar-main": {
+			"states": {
+				"default": {
+					"properties": {
+						"textColor": "navbar-text",
+						"backgroundColor": "navbar-background"
+					}
+				}
+			},
+			"components": {
+				"user-info": {
+				},
+				"user-avatar": {
+					"states": {
+						"default": {
+							"styles": {
+								"radius": 40,
+								"width": 1,
+								"color": "#DCE3E3",
+								"backgroundColor": "#DCE3E3"
+							}
+						}
+					}
+				},
+				"user-status": {
+					"states": {
+						"default": {
+							"styles": {
+								"radius": 20
+							}
+						}
+					}
+				}
+			}
+		},
+		"navbar-sub-item": {
+			"text": "Navbar Sub Item",
+			"states": {
+				"default": {
+					"properties": {
+						"height": 10,
+						"paddingTop": 0
+					}
+				}
+			}
+		},
+		"tooltip": {
+			"states": {
+				"default": {
+					"properties": {
+						"offsetLeft": 5,
+						"placeMethod": "widget",
+						"position": "right-middle",
+						"maxWidth": 280
+					},
+					"styles": {
+						"transition": "0.4",
+						"css": ""
+					}
+				},
+				"placementLeft": {
+					"properties": {
+						"arrowPosition": "right"
+					}
+				},
+				"placementRight": {
+					"properties": {
+						"arrowPosition": "left"
+					}
+				},
+				"placementAbove": {
+					"properties": {
+						"arrowPosition": "below"
+					}
+				},
+				"placementBelow": {
+					"properties": {
+						"arrowPosition": "above"
+					}
+				}
+			},
+			"components": {
+				"atom": {
+					"text": "Atom",
+					"states": {
+						"default": {
+							"styles": {
+								"backgroundColor": "#F4F4F4",
+								"width": 1,
+								"color": "windowFrame",
+								"startColor": "#FEF9E1",
+								"endColor": "#FCDA72",
+								"css": null,
+								"transition": "transform .4s",
+								"transform": "translateZ(0)"
+							},
+							"properties": {
+								"padding": 5,
+								"textColor": "windowText",
+								"icon": "icon-info",
+								"show": "both"
+							}
+						}
+					},
+					"components": {
+						"icon": {
+							"inherit": "icon-dark"
+						}
+					}
+				},
+				"arrow": {
+					"text": "Arrow",
+					"states": {
+						"default": {
+							"properties": {
+								"zIndex": 11
+							}
+						},
+						"placementLeft": {
+							"properties": {
+								"marginLeft": -1,
+								"alignY": "middle",
+								"source": "tooltip-arrow-left?color=#FEF9E1"
+							},
+							"styles": {
+								"transform": "rotate(180deg)"
+							}
+						},
+						"placementRight": {
+							"properties": {
+								"marginRight": -1,
+								"alignY": "middle",
+								"source": "tooltip-arrow-left?color=#FEF9E1"
+							},
+							"styles": {
+								"transform": "rotate(0deg)"
+							}
+						},
+						"placementAbove": {
+							"properties": {
+								"marginTop": -3,
+								"alignX": "center",
+								"source": "tooltip-arrow-left?color=#FEF9E1"
+							},
+							"styles": {
+								"transform": "rotate(-90deg)"
+							}
+						},
+						"placementBelow": {
+							"properties": {
+								"marginBottom": -3,
+								"alignX": "center",
+								"source": "tooltip-arrow-left?color=#FEF9E1"
+							},
+							"styles": {
+								"transform": "rotate(90deg)"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

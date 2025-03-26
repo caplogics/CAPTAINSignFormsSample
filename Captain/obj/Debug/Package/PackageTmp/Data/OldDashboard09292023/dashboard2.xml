@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="Exec Dashboard 2" />
+  <DataSources>
+    <SqlDataSource Name="DASHBORDRPT 2" ComponentName="sqlDataSource1">
+      <Connection Name="CMMSo" FromAppConfig="true" />
+      <Query Type="StoredProcQuery" Name="DASHBORDRPT">
+        <Parameter Name="@TBAddStartDate" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?StartDate)</Parameter>
+        <Parameter Name="@TBAddEndDate" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?EndDate)</Parameter>
+        <Parameter Name="@DefAgency" Type="DevExpress.DataAccess.Expression">(System.String)(?Agency)</Parameter>
+        <Parameter Name="@MODE" Type="DevExpress.DataAccess.Expression">(System.String)(Join(?Mode))</Parameter>
+        <ProcName>DASHBORDRPT</ProcName>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="tblAgencies" ComponentName="sqlDataSource2">
+      <Connection Name="CMMSo" FromAppConfig="true" />
+      <Query Type="StoredProcQuery" Name="DASHBORDRPT">
+        <Parameter Name="@TBAddStartDate" Type="System.DateTime">638223840000000000</Parameter>
+        <Parameter Name="@TBAddEndDate" Type="System.DateTime">638223840000000000</Parameter>
+        <Parameter Name="@DefAgency" Type="System.String"></Parameter>
+        <Parameter Name="@MODE" Type="System.String">AGY</Parameter>
+        <ProcName>DASHBORDRPT</ProcName>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="StartDate" Type="System.DateTime" Description="Start Date" />
+    <Parameter Name="EndDate" Type="System.DateTime" Description="End Date" />
+    <Parameter Name="Agency" Description="Agency">
+      <DynamicListLookUpSettings DataSourceName="sqlDataSource2" DataMember="DASHBORDRPT" ValueMember="DEP_AGENCY" DisplayMember="HIE" />
+    </Parameter>
+    <Parameter Name="Mode" AllowNull="true" AllowMultiselect="true" Description="Table Type">
+      <StaticListLookUpSettings>
+        <Values>
+          <Value>Client Intakes</Value>
+          <Value>Household Members</Value>
+          <Value>Income Details</Value>
+        </Values>
+      </StaticListLookUpSettings>
+    </Parameter>
+  </Parameters>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" DataSource="sqlDataSource1" DataMember="DASHBORDRPT">
+      <DataItems>
+        <Dimension DataMember="TotalCount" DefaultId="DataItem0" />
+        <Dimension DataMember="Program" DefaultId="DataItem1" />
+        <Dimension DataMember="USERID" DefaultId="DataItem2" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+      </GridColumns>
+      <GridOptions />
+      <ColumnFilterOptions />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="gridDashboardItem1" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

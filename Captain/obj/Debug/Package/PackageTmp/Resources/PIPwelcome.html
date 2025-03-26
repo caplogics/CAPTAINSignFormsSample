@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Captain | Public Intake Portal</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/main.css" rel="stylesheet" media="all">
+    <style>
+        h1 {
+        }
+        
+.bg-gra-01 {
+    background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
+    background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+    background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+    background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+    background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
+}
+
+.bg-gra-02 {
+    background: -webkit-gradient(linear, left bottom, right top, from(#fffff), to(#f2f2f2));
+    background: -webkit-linear-gradient(bottom left, #f2f2f2 0%, #ffffff 100%);
+    background: -moz-linear-gradient(bottom left, #f2f2f2 0%, #ffffff 100%);
+    background: -o-linear-gradient(bottom left, #f2f2f2 0%, #ffffff 100%);
+    background: linear-gradient(to top right, #f2f2f2 0%, #ffffff 100%);
+}
+
+.bg-gra-03 {
+    /*background: -webkit-gradient(linear, left bottom, right top, from(#2c6ed5), to(#6c4079));
+    background: -webkit-linear-gradient(bottom left, #2c6ed5 0%, #6c4079 100%);
+    background: -moz-linear-gradient(bottom left, #2c6ed5 0%, #6c4079 100%);
+    background: -o-linear-gradient(bottom left, #2c6ed5 0%, #6c4079 100%);
+    background: linear-gradient(to top right, #2c6ed5 0%, #6c4079 100%);*/
+    background-image: linear-gradient(-90deg,#6c4079, #2c6ed5);
+}
+
+.bg-gra-04 {
+    background: -webkit-gradient(linear, left bottom, right top, from(#1b51a4), to(#1b51a4));
+    background: -webkit-linear-gradient(bottom left, #1b51a4 0%, #1b51a4 100%);
+    background: -moz-linear-gradient(bottom left, #1b51a4 0%, #1b51a4 100%);
+    background: -o-linear-gradient(bottom left, #1b51a4 0%, #1b51a4 100%);
+    background: linear-gradient(to top right, #1b51a4 0%, #1b51a4 100%);
+}
+    </style>
+</head>
+<body class="{bgcolor}" style="margin:0px; padding:0px;font-family:Calibri;  font-size:16px; ">
+    <div class="page-wrapper p-t-20 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680" align="center" style="padding: 10px;">
+            <img src="{imagelogo}" width="300" />
+        </div>
+        <div class="wrapper wrapper--w680" style="">
+            <div style="margin:10px; border-radius:4px; background-color:#ffffff; padding:20px;">
+                <div style="padding-bottom:10px;">
+                    <h2 style="border-bottom:0px; color:#2c6ed5;"> {h2title}</h2>
+                </div>
+                <div style="background-color:#ffffff;">
+                    <p style="font-size:15px;">
+                        {Prefix} <b> {Name} </b> <br /><br />
+                        <!--Dear <b>{username}</b>, <br /><br />
+
+                        Congratulations! Your registration is successfully completed. <br />
+                        
+                        Please login and update your intake details <br /><br />-->
+
+                        <!--<a  style="padding:10px; font-size:18px; background-color:#ff6a00; border-radius:8px; color:#fff; text-decoration:none; text-transform:none; font-weight:bold;" href="https://pip.capsystems.com/PIP20/login.aspx?ltyp=l">login</a>-->
+                         {Message}
+                        <br /><br />
+                        {verfymaillink}
+                        
+
+                    </p>
+                    <p style="text-align:left; padding-top:50px; font-size:15px;">
+                        Thank You,<br />
+                        {CompanyName}<br />
+                        {Address}<br />
+                        {City}<br />
+                        {State}<br />
+                        {Country}<br />
+                        {Pin}
+                    </p>
+                    <p style="padding-top:10px;align-items:center; text-align:center; font-size:13px; color:#0767ae">
+                        © 2017 Capsystems. All rights reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br /><br /><br />
+    </div>
+
+</body>
+</html>

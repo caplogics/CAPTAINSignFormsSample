@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="Service Plans" />
+  <DataSources>
+    <SqlDataSource Name="DashboardReport_Analsys" ComponentName="sqlDataSource1">
+      <Connection Name="CMMSo" FromAppConfig="true" />
+      <Query Type="StoredProcQuery" Name="DASB_RPT">
+        <Parameter Name="@MONTH" Type="DevExpress.DataAccess.Expression">(System.Int32)(?Month)</Parameter>
+        <Parameter Name="@YEAR" Type="DevExpress.DataAccess.Expression">(System.Int32)(?Year)</Parameter>
+        <Parameter Name="@DefAgency" Type="DevExpress.DataAccess.Expression">(System.String)(?Agency)</Parameter>
+        <Parameter Name="@MODE" Type="System.String">AGYRPT</Parameter>
+        <ProcName>DASB_RPT</ProcName>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="DashboardReport_Analsys">
+          <View Name="DASB_RPT">
+            <Field Name="CurrDay" Type="String" />
+            <Field Name="Mdate" Type="DateTime" />
+            <Field Name="WRKDATES" Type="String" />
+            <Field Name="TBLTYPE" Type="String" />
+            <Field Name="Program" Type="String" />
+            <Field Name="ProgramCode" Type="String" />
+            <Field Name="TotalCount" Type="Int64" />
+            <Field Name="ORDBY" Type="Int32" />
+            <Field Name="DEP_INTAKE_PROG" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+      <CalculatedFields>
+        <CalculatedField Name="fMONTH" Expression="[Mdate] " DataType="Auto" DataMember="DASB_RPT" />
+        <CalculatedField Name="FYEAR" Expression="[Mdate] " DataType="Auto" DataMember="DASB_RPT" />
+        <CalculatedField Name="Calculated Field 1" Expression="Sum( [TotalCount] ) " DataType="Auto" DataMember="DASB_RPT" />
+        <CalculatedField Name="Calculated Field 2" Expression="[TotalCount] + ' ' +  [TBLTYPE] " DataMember="DASB_RPT" />
+      </CalculatedFields>
+    </SqlDataSource>
+    <SqlDataSource Name="Dasb_Agency_List" ComponentName="sqlDataSource2">
+      <Connection Name="CMMSo" FromAppConfig="true" />
+      <Query Type="StoredProcQuery" Name="DASB_RPT">
+        <Parameter Name="@MONTH" Type="System.Int32">0</Parameter>
+        <Parameter Name="@YEAR" Type="System.Int32">0</Parameter>
+        <Parameter Name="@DefAgency" Type="System.String"></Parameter>
+        <Parameter Name="@MODE" Type="System.String">AGYLST</Parameter>
+        <ProcName>DASB_RPT</ProcName>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="Year" Value="2023" Description="Year">
+      <StaticListLookUpSettings>
+        <Values>
+          <Value>2012</Value>
+          <Value>2013</Value>
+          <Value>2014</Value>
+          <Value>2015</Value>
+          <Value>2016</Value>
+          <Value>2017</Value>
+          <Value>2018</Value>
+          <Value>2019</Value>
+          <Value>2020</Value>
+          <Value>2021</Value>
+          <Value>2022</Value>
+          <Value>2023</Value>
+        </Values>
+      </StaticListLookUpSettings>
+    </Parameter>
+    <Parameter Name="Month" Value="06" Description="Month">
+      <StaticListLookUpSettings>
+        <Values>
+          <Value>01</Value>
+          <Value>02</Value>
+          <Value>03</Value>
+          <Value>04</Value>
+          <Value>05</Value>
+          <Value>06</Value>
+          <Value>07</Value>
+          <Value>08</Value>
+          <Value>09</Value>
+          <Value>10</Value>
+          <Value>11</Value>
+          <Value>12</Value>
+        </Values>
+      </StaticListLookUpSettings>
+    </Parameter>
+    <Parameter Name="Agency" Value="08" Description="Agency">
+      <DynamicListLookUpSettings DataSourceName="sqlDataSource2" DataMember="DASB_RPT" ValueMember="DEP_AGENCY" DisplayMember="HIE" />
+    </Parameter>
+  </Parameters>
+  <Items>
+    <Chart ComponentName="chartDashboardItem2" Name="Daily Service Plans" ShowCaption="false" DataSource="sqlDataSource1" DataMember="DASB_RPT" FilterString="[TotalCount] &gt; 0 And TRIM([DataItem3]) = 'Service Plans'">
+      <ColoringOptions MeasuresColoringMode="Hue" />
+      <DataItems>
+        <Dimension DataMember="FYEAR" DefaultId="DataItem0" />
+        <Dimension DataMember="fMONTH" DateTimeGroupInterval="Month" DefaultId="DataItem1" />
+        <Dimension DataMember="Mdate" DateTimeGroupInterval="Day" ColoringMode="None" DefaultId="DataItem2" />
+        <Dimension DataMember="TBLTYPE" ColoringMode="Hue" DefaultId="DataItem3" />
+        <Measure DataMember="TotalCount" DefaultId="DataItem4" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem0" />
+        <Dimension DefaultId="DataItem1" />
+      </HiddenDimensions>
+      <FormatRules>
+        <ChartItemFormatRule Name="Format Rule 2" DataItem="DataItem4" SeriesId="DataItem4">
+          <FormatConditionValue Condition="Greater">
+            <ColorStyleSettings Color="-8864774" PredefinedColor="Custom" />
+            <Value1 Type="System.Decimal" Value="2" />
+          </FormatConditionValue>
+        </ChartItemFormatRule>
+      </FormatRules>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem3" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <AxisY Title="Service Plans" />
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem4" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <ChartLegend Visible="false" />
+      <AxisX TitleVisible="true" Title="Day" />
+    </Chart>
+    <Card ComponentName="cardDashboardItem1" Name="Amount Per Day" ShowCaption="false" ParentContainer="groupDashboardItem1" DataSource="sqlDataSource1" DataMember="DASB_RPT" FilterString="[TotalCount] &gt; 0 And TRIM([DataItem6]) = 'Service Plans'">
+      <DataItems>
+        <Dimension DataMember="Mdate" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem2" />
+        <Measure DataMember="TotalCount" DefaultId="DataItem4" />
+        <Measure DataMember="TotalCount" SummaryType="Count" DefaultId="DataItem3" />
+        <Dimension DataMember="TBLTYPE" DateTimeGroupInterval="Day" DefaultId="DataItem6" />
+        <Dimension DataMember="TBLTYPE" DefaultId="DataItem0" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem6" />
+      </HiddenDimensions>
+      <HiddenMeasures>
+        <Measure DefaultId="DataItem3" />
+      </HiddenMeasures>
+      <FormatRules>
+        <CardItemDeltaFormatRule Name="Format Rule 1" DeltaValueType="ActualValue" CardId="DataItem4">
+          <FormatConditionRangeGradient ValueType="Percent">
+            <RangeSet>
+              <Ranges>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="0" />
+                  <AppearanceSettings AppearanceType="GradientTransparent" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="10" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="20" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="30" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="40" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="50" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="60" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="70" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="80" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="90" />
+                  <AppearanceSettings AppearanceType="GradientBlue" />
+                </RangeInfo>
+              </Ranges>
+            </RangeSet>
+          </FormatConditionRangeGradient>
+          <CardFormatRuleLayoutElement />
+        </CardItemDeltaFormatRule>
+      </FormatRules>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Card>
+        <ActualValue DefaultId="DataItem4" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+        <SparklineOptions ViewType="Bar" />
+        <LayoutTemplate MinWidth="100" Type="Lightweight">
+          <MainValue Visible="true" ValueType="ActualValue" DimensionIndex="0" />
+          <SubValue Visible="true" ValueType="Title" DimensionIndex="0" />
+          <BottomValue Visible="true" ValueType="Subtitle" DimensionIndex="0" />
+          <DeltaIndicator Visible="false" />
+          <Sparkline Visible="false" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+  </Items>
+  <Groups>
+    <Group ComponentName="groupDashboardItem1" Name="Cards" ShowCaption="false" />
+  </Groups>
+  <ColorScheme>
+    <Entry DataSource="sqlDataSource1" DataMember="DASB_RPT" Color="-3612169">
+      <MeasureKey>
+        <Definition DataMember="TotalCount" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="TBLTYPE" />
+          <Value Type="System.String" Value="         Intakes" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+    <Entry DataSource="sqlDataSource1" DataMember="DASB_RPT" Color="-3612169">
+      <MeasureKey>
+        <Definition DataMember="TotalCount" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="TBLTYPE" />
+          <Value Type="System.String" Value="        Income Verified" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+    <Entry DataSource="sqlDataSource1" DataMember="DASB_RPT" Color="-3612169">
+      <MeasureKey>
+        <Definition DataMember="TotalCount" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="TBLTYPE" />
+          <Value Type="System.String" Value="       Referrals to Programs" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+    <Entry DataSource="sqlDataSource1" DataMember="DASB_RPT" Color="-3612169">
+      <MeasureKey>
+        <Definition DataMember="TotalCount" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="TBLTYPE" />
+          <Value Type="System.String" Value="      Referrals to Partners" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+    <Entry DataSource="sqlDataSource1" DataMember="DASB_RPT" Color="-3612169">
+      <MeasureKey>
+        <Definition DataMember="TotalCount" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="TBLTYPE" />
+          <Value Type="System.String" Value="     Contacts" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+    <Entry DataSource="sqlDataSource1" DataMember="DASB_RPT" Color="-3612169">
+      <MeasureKey>
+        <Definition DataMember="TotalCount" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="TBLTYPE" />
+          <Value Type="System.String" Value="    Service Plans" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+    <Entry DataSource="sqlDataSource1" DataMember="DASB_RPT" Color="-3612169">
+      <MeasureKey>
+        <Definition DataMember="TotalCount" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="TBLTYPE" />
+          <Value Type="System.String" Value="   Services" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+    <Entry DataSource="sqlDataSource1" DataMember="DASB_RPT" Color="-3612169">
+      <MeasureKey>
+        <Definition DataMember="TotalCount" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="TBLTYPE" />
+          <Value Type="System.String" Value="  Outcomes" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+    <Entry DataSource="sqlDataSource1" DataMember="DASB_RPT" Color="-3612169">
+      <MeasureKey>
+        <Definition DataMember="TotalCount" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="TBLTYPE" />
+          <Value Type="System.String" Value=" Assessments" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+  </ColorScheme>
+  <LayoutOptions>
+    <Width Value="1090" />
+  </LayoutOptions>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Orientation="Vertical">
+        <LayoutItem DashboardItem="chartDashboardItem2" />
+        <LayoutGroup DashboardItem="groupDashboardItem1" Weight="1.3452566096423018">
+          <LayoutItem DashboardItem="cardDashboardItem1" Weight="1.81162105820456" />
+        </LayoutGroup>
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

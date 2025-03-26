@@ -1,0 +1,45 @@
+﻿body {
+}
+
+.NavbarItem {
+    background-color: transparent;
+}
+
+    .NavbarItem:hover {
+        background-color: #ffffff;
+        border-radius: 0 12px 12px 0;
+        margin-right: 20px;
+    }
+
+    .NavbarItem title {
+        background-color: greenyellow;
+    }
+
+.NavbarItemSelected {
+    background-color: #0E6AAD;
+    border-radius: 0 12px 12px 0;
+}
+
+.btngridActive {
+    background-color: transparent !important;
+    /*end color  #0e6aad*/
+    cursor: pointer;
+    border-radius:15px;
+    color:#ffffff;
+}
+
+    /*.btngridActive:hover {
+        background-color: #0F71B9 !important;*/
+        /*end color  #00E6FF*/
+        /*cursor: pointer;
+    }*/
+
+.btngridDeactive {
+    background-color: #e4e9eb !important;
+    /*end color  #0e6aad*/
+    cursor: none;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+  

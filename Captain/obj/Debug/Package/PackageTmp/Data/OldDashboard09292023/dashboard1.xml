@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="Executive Dashboard" />
+  <DataSources>
+    <SqlDataSource Name="DASHBORDRPT" ComponentName="sqlDataSource1">
+      <Connection Name="CMMSo" FromAppConfig="true" />
+      <Query Type="StoredProcQuery" Name="DASHBORDRPT">
+        <Parameter Name="@TBAddStartDate" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?StartDate)</Parameter>
+        <Parameter Name="@TBAddEndDate" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?EndDate)</Parameter>
+        <Parameter Name="@DefAgency" Type="DevExpress.DataAccess.Expression">(System.String)(?Agency)</Parameter>
+        <Parameter Name="@MODE" Type="DevExpress.DataAccess.Expression">(System.String)(Join(?Mode))</Parameter>
+        <ProcName>DASHBORDRPT</ProcName>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="DASHBORDRPT 1" ComponentName="sqlDataSource2">
+      <Connection Name="CMMSo" FromAppConfig="true" />
+      <Query Type="StoredProcQuery" Name="DASHBORDRPT">
+        <Parameter Name="@TBAddStartDate" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?StartDate)</Parameter>
+        <Parameter Name="@TBAddEndDate" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?EndDate)</Parameter>
+        <Parameter Name="@DefAgency" Type="DevExpress.DataAccess.Expression">(System.String)(?Agency)</Parameter>
+        <Parameter Name="@MODE" Type="DevExpress.DataAccess.Expression">(System.String)(Join(?Mode))</Parameter>
+        <ProcName>DASHBORDRPT</ProcName>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="fillAGY" ComponentName="sqlDataSource3">
+      <Connection Name="CMMSo" FromAppConfig="true" />
+      <Query Type="StoredProcQuery" Name="DASHBORDRPT">
+        <Parameter Name="@TBAddStartDate" Type="System.DateTime">638223840000000000</Parameter>
+        <Parameter Name="@TBAddEndDate" Type="System.DateTime">638223840000000000</Parameter>
+        <Parameter Name="@DefAgency" Type="System.String"></Parameter>
+        <Parameter Name="@MODE" Type="System.String">AGY</Parameter>
+        <ProcName>DASHBORDRPT</ProcName>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="StartDate" Type="System.DateTime" Value="06/08/2023" />
+    <Parameter Name="EndDate" Type="System.DateTime" />
+    <Parameter Name="Agency" Value="08">
+      <DynamicListLookUpSettings DataSourceName="sqlDataSource3" DataMember="DASHBORDRPT" ValueMember="DEP_AGENCY" DisplayMember="HIE" />
+    </Parameter>
+    <Parameter Name="Mode" AllowNull="true" AllowMultiselect="true">
+      <StaticListLookUpSettings>
+        <Values>
+          <Value>Client Intakes</Value>
+          <Value>Household Members</Value>
+          <Value>Income Details</Value>
+          <Value>Income Verification</Value>
+          <Value>Outcome Indicators (MS)</Value>
+          <Value>Services Activities (CA)</Value>
+          <Value>Service Plans</Value>
+          <Value>Enrollment</Value>
+          <Value>Fuel Assistance Supplier Data</Value>
+          <Value>Fuel Assistance Benefit Data</Value>
+          <Value>Fuel Assistance Payments</Value>
+          <Value>Full Assessments</Value>
+          <Value>Emergency Services(Resource Records)</Value>
+          <Value>Emergency Services(Invoices/Authorizations)</Value>
+        </Values>
+      </StaticListLookUpSettings>
+      <Values>
+        <Value>Client Intakes</Value>
+        <Value>Household Members</Value>
+      </Values>
+    </Parameter>
+  </Parameters>
+  <Items>
+    <TabContainer ComponentName="tabContainerDashboardItem1" Name="Tab Container 1">
+      <Pages>
+        <Page ComponentName="dashboardTabPage1" Name="Users\Programs View" />
+        <Page ComponentName="dashboardTabPage2" Name="View Charts Summary" />
+        <Page ComponentName="dashboardTabPage3" Name="Users &amp; Programs Chart View" />
+      </Pages>
+    </TabContainer>
+    <Pivot ComponentName="pivotDashboardItem1" Name="Users\Programs View" ShowCaption="false" ParentContainer="dashboardTabPage1" DataSource="sqlDataSource1" DataMember="DASHBORDRPT">
+      <DataItems>
+        <Measure DataMember="TotalCount" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" />
+        </Measure>
+        <Dimension DataMember="USERID" DefaultId="DataItem1" />
+        <Dimension DataMember="Program" DefaultId="DataItem3" />
+        <Dimension DataMember="TableType" DefaultId="DataItem2" />
+      </DataItems>
+      <Columns>
+        <Column DefaultId="DataItem3" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem1" />
+        <Row DefaultId="DataItem2" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+      <AutoExpandColumnGroups>true</AutoExpandColumnGroups>
+    </Pivot>
+    <Chart ComponentName="chartDashboardItem1" Name="Summary Bar Chart" ParentContainer="dashboardTabPage2" DataSource="sqlDataSource1" DataMember="DASHBORDRPT">
+      <DataItems>
+        <Measure DataMember="TotalCount" DefaultId="DataItem1" />
+        <Dimension DataMember="TableType" DefaultId="DataItem0" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Panes>
+        <Pane Name="Pane 1">
+          <AxisY>
+            <NumericFormat FormatType="Number" Unit="Ones" />
+          </AxisY>
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Pie ComponentName="pieDashboardItem2" Name="Summary Pie Chart" ParentContainer="dashboardTabPage2" DataSource="sqlDataSource1" DataMember="DASHBORDRPT" LabelContentType="ArgumentAndValue" ShowPieCaptions="false">
+      <DataItems>
+        <Measure DataMember="TotalCount" DefaultId="DataItem2" />
+        <Dimension DataMember="TableType" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem2" />
+      </Values>
+    </Pie>
+    <Pie ComponentName="pieDashboardItem1" Name="Pies 1" ParentContainer="dashboardTabPage3" DataSource="sqlDataSource1" DataMember="DASHBORDRPT" ContentArrangementMode="FixedColumnCount" ContentLineCount="2">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Measure DataMember="TableType" SummaryType="Count" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Measure>
+        <Dimension DataMember="Program" DefaultId="DataItem1" />
+        <Dimension DataMember="USERID" TopNCount="3" TopNMeasure="DataItem0" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Chart ComponentName="chartDashboardItem2" Name="Chart 2" ParentContainer="dashboardTabPage3" DataSource="sqlDataSource1" DataMember="DASHBORDRPT">
+      <DataItems>
+        <Measure DataMember="TableType" SummaryType="Count" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Measure>
+        <Dimension DataMember="Program" DefaultId="DataItem1" />
+        <Dimension DataMember="USERID" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem1" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <ComboBox ComponentName="comboBoxDashboardItem1" Name="Users" DataSource="sqlDataSource1" DataMember="DASHBORDRPT">
+      <DataItems>
+        <Dimension DataMember="USERID" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+    <ComboBox ComponentName="comboBoxDashboardItem2" Name="Programs" DataSource="sqlDataSource1" DataMember="DASHBORDRPT">
+      <DataItems>
+        <Dimension DataMember="Program" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+  </Items>
+  <ColorScheme>
+    <Entry DataSource="sqlDataSource1" DataMember="DASHBORDRPT" Color="-11818163">
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="Program" />
+          <Value Type="System.String" Value="Client Contacts" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+  </ColorScheme>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Orientation="Vertical">
+        <LayoutGroup>
+          <LayoutItem DashboardItem="comboBoxDashboardItem1" />
+          <LayoutItem DashboardItem="comboBoxDashboardItem2" />
+        </LayoutGroup>
+        <LayoutTabContainer DashboardItem="tabContainerDashboardItem1">
+          <LayoutTabPage DashboardItem="dashboardTabPage1">
+            <LayoutItem DashboardItem="pivotDashboardItem1" />
+          </LayoutTabPage>
+          <LayoutTabPage DashboardItem="dashboardTabPage3">
+            <LayoutItem DashboardItem="pieDashboardItem1" />
+            <LayoutItem DashboardItem="chartDashboardItem2" />
+          </LayoutTabPage>
+          <LayoutTabPage DashboardItem="dashboardTabPage2">
+            <LayoutItem DashboardItem="pieDashboardItem2" />
+            <LayoutItem DashboardItem="chartDashboardItem1" />
+          </LayoutTabPage>
+        </LayoutTabContainer>
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

@@ -1,0 +1,13 @@
+﻿
+/************** \\ Appointment Schedule Screens CSS // *********************/
+.cellMousehover div {
+cursor:pointer;
+}
+
+    .cellMousehover div:hover {
+        opacity: 0.5;
+        border: 2px solid #5d778f;
+        border-radius: 0 5px 5px 0;
+    }
+
+/**************************************************************************/

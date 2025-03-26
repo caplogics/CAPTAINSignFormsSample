@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Captain</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;IE=11" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <script src="wisej.wx"></script>
+    <style>
+        body {
+            background: url("Resources/Images/Backgrounds/bgimg.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        #splash {
+            position: absolute;
+            bottom: calc(35% + 19px);
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url("Resources/Images/caplogo2-01.png");
+            background-position: center;
+            background-size: 400px auto;
+            background-repeat: no-repeat;
+            width: 562px;
+            height: 167px;
+            overflow: hidden;
+            opacity: 0;
+            z-index: 5;
+            transition: opacity 2s;
+        }
+
+        #loading {
+            color: #103F6D;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-align: center;
+            width: 400px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            bottom: calc(50% - 54px);
+        }
+
+        #loading-bar {
+            background-color: #ffffff;
+            width: 420px;
+            height: 8px;
+            margin: 0 auto;
+            border-radius: 13px;
+            position: absolute;
+            bottom: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #loading-progress {
+            background-color: #C59320;
+            height: 100%;
+            border-radius: 13px;
+            width: 10px;
+            transition: width 3s, left 3s;
+            position: absolute;
+        }
+
+        /************** \\ Appointment Schedule Screens CSS // *********************/
+        .cellMousehover {
+            cursor: pointer;
+        }
+
+            .cellMousehover :hover {
+           /*     opacity: 0.5;*/
+                background-color: #b3d9ff !important;
+                /*border: 1px dotted #5d778f !important;*/
+               
+                border-radius: 0 5px 5px 0;
+            }
+            /* .cellMousehover:active {
+                border: 2px dotted #5d778f !important;
+            }*/
+
+            .cellMousehover:focus {
+                border: 1px solid #5d778f !important;
+            }
+
+        .qx-table-cell-selected-even-borderBoth > .qx-table-cell-content {
+            border: 1px solid #b3d9ff !important;
+            background-color: #b3d9ff !important;
+        }
+
+        .qx-table-cell-selected-odd-borderBoth > .qx-table-cell-content {
+            border: 1px solid #b3d9ff !important;
+            background-color: #b3d9ff !important;
+        }
+        .qx-table-checkbox-cell-content {
+            background-color: transparent !important;
+        }
+        .qx-table-image-cell-content {
+            background-color: transparent !important;
+        }
+        /**************************************************************************/
+        .qx-combobox-disabled-borderSolid-dropDownList {
+            background-color: #eeeeee !important;
+        }
+
+        .month-calendar-cell {
+            background-size: 20px !important;
+            background-position: right 7px center !important;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiMyMTI2MjkiIGNsYXNzPSJiaSBiaS1jYWxlbmRhcjMiIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImNvbG9yOiByZ2IoMzMsIDM4LCA0MSk7IGZpbGw6IHJnYigzMywgMzgsIDQxKTsiPgogIDxwYXRoIGQ9Ik0xNCAwSDJhMiAyIDAgMCAwLTIgMnYxMmEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJWMmEyIDIgMCAwIDAtMi0yek0xIDMuODU3QzEgMy4zODQgMS40NDggMyAyIDNoMTJjLjU1MiAwIDEgLjM4NCAxIC44NTd2MTAuMjg2YzAgLjQ3My0uNDQ4Ljg1Ny0xIC44NTdIMmMtLjU1MiAwLTEtLjM4NC0xLS44NTdWMy44NTd6IiBmaWxsPSIjMjEyNjI5Ii8+CiAgPHBhdGggZD0iTTYuNSA3YTEgMSAwIDEgMCAwLTIgMSAxIDAgMCAwIDAgMnptMyAwYTEgMSAwIDEgMCAwLTIgMSAxIDAgMCAwIDAgMnptMyAwYTEgMSAwIDEgMCAwLTIgMSAxIDAgMCAwIDAgMnptLTkgM2ExIDEgMCAxIDAgMC0yIDEgMSAwIDAgMCAwIDJ6bTMgMGExIDEgMCAxIDAgMC0yIDEgMSAwIDAgMCAwIDJ6bTMgMGExIDEgMCAxIDAgMC0yIDEgMSAwIDAgMCAwIDJ6bTMgMGExIDEgMCAxIDAgMC0yIDEgMSAwIDAgMCAwIDJ6bS05IDNhMSAxIDAgMSAwIDAtMiAxIDEgMCAwIDAgMCAyem0zIDBhMSAxIDAgMSAwIDAtMiAxIDEgMCAwIDAgMCAyem0zIDBhMSAxIDAgMSAwIDAtMiAxIDEgMCAwIDAgMCAyeiIgZmlsbD0iIzIxMjYyOSIvPgo8L3N2Zz4=") !important;
+        }
+    </style>
+</head>
+<body style="padding: 0px; margin: 0px;background-color: #E6E6E6;">
+    
+    <div id="splash"></div>
+    <div id="loading-bar">
+        <div id="loading-progress"></div>
+    </div>
+    <div id="loading">loading...</div>
+    <script>
+        var splash = document.getElementById("splash");
+        var loadingProgress = document.getElementById("loading-progress");
+        splash.style.opacity = 1;
+        setTimeout(function () {
+            loadingProgress.style.width = "100%";
+            loadingProgress.style.left = "0%";
+            setTimeout(function () {
+                loadingProgress.style.width = "0%";
+                loadingProgress.style.left = "100%";
+            }, 3000);
+        }, 1);
+
+        Wisej.onLoad = function () {
+            document.getElementById("splash").remove();
+            document.getElementById("loading").remove();
+            document.getElementById("loading-bar").remove();
+
+            //document.getElementsByName("title"). = "900";
+        }
+
+        Wisej.onExit = function () {
+            //alert("Sorry, the app has been closed!");
+            location.reload();
+        };
+
+    </script>
+</body>
+</html>

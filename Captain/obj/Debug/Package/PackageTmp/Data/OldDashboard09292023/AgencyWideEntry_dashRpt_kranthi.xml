@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="Agency Wide Data Entry Activity" />
+  <DataSources>
+    <SqlDataSource Name="DashboardReport_Analsys" ComponentName="sqlDataSource1">
+      <Connection Name="CMMSo" FromAppConfig="true" />
+      <Query Type="StoredProcQuery" Name="DASB_RPT">
+        <Parameter Name="@MONTH" Type="DevExpress.DataAccess.Expression">(System.Int32)(?Month)</Parameter>
+        <Parameter Name="@YEAR" Type="DevExpress.DataAccess.Expression">(System.Int32)(?Year)</Parameter>
+        <Parameter Name="@DefAgency" Type="DevExpress.DataAccess.Expression">(System.String)(?Agency)</Parameter>
+        <Parameter Name="@MODE" Type="System.String">AGYRPT</Parameter>
+        <ProcName>DASB_RPT</ProcName>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+      <CalculatedFields>
+        <CalculatedField Name="fMONTH" Expression="[Mdate] " DataType="Auto" DataMember="DASB_RPT" />
+        <CalculatedField Name="FYEAR" Expression="[Mdate] " DataType="Auto" DataMember="DASB_RPT" />
+        <CalculatedField Name="Calculated Field 1" Expression="Sum( [TotalCount] ) " DataType="Auto" DataMember="DASB_RPT" />
+        <CalculatedField Name="Calculated Field 2" Expression="Concat('Day', [Mdate] )" DataType="Auto" DataMember="DASB_RPT" />
+      </CalculatedFields>
+    </SqlDataSource>
+    <SqlDataSource Name="Dasb_Agency_List" ComponentName="sqlDataSource2">
+      <Connection Name="CMMSo" FromAppConfig="true" />
+      <Query Type="StoredProcQuery" Name="DASB_RPT">
+        <Parameter Name="@MONTH" Type="System.Int32">0</Parameter>
+        <Parameter Name="@YEAR" Type="System.Int32">0</Parameter>
+        <Parameter Name="@DefAgency" Type="System.String"></Parameter>
+        <Parameter Name="@MODE" Type="System.String">AGYLST</Parameter>
+        <ProcName>DASB_RPT</ProcName>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="Year" Value="2023" Description="Year">
+      <StaticListLookUpSettings>
+        <Values>
+          <Value>2012</Value>
+          <Value>2013</Value>
+          <Value>2014</Value>
+          <Value>2015</Value>
+          <Value>2016</Value>
+          <Value>2017</Value>
+          <Value>2018</Value>
+          <Value>2019</Value>
+          <Value>2020</Value>
+          <Value>2021</Value>
+          <Value>2022</Value>
+          <Value>2023</Value>
+        </Values>
+      </StaticListLookUpSettings>
+    </Parameter>
+    <Parameter Name="Month" Value="06" Description="Month">
+      <StaticListLookUpSettings>
+        <Values>
+          <Value>01</Value>
+          <Value>02</Value>
+          <Value>03</Value>
+          <Value>04</Value>
+          <Value>05</Value>
+          <Value>06</Value>
+          <Value>07</Value>
+          <Value>08</Value>
+          <Value>09</Value>
+          <Value>10</Value>
+          <Value>11</Value>
+          <Value>12</Value>
+        </Values>
+      </StaticListLookUpSettings>
+    </Parameter>
+    <Parameter Name="Agency" Value="08" Description="Agency">
+      <DynamicListLookUpSettings DataSourceName="sqlDataSource2" DataMember="DASB_RPT" ValueMember="DEP_AGENCY" DisplayMember="HIE" />
+    </Parameter>
+  </Parameters>
+  <Items>
+    <Pivot ComponentName="pivotDashboardItem1" Name="Pivot 1" ShowCaption="false" ParentContainer="dashboardTabPage1" DataSource="sqlDataSource1" DataMember="DASB_RPT">
+      <InteractivityOptions IgnoreMasterFilters="true" />
+      <DataItems>
+        <Dimension DataMember="TBLTYPE" TopNMeasure="DataItem2" DefaultId="DataItem0" />
+        <Measure DataMember="TotalCount" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Measure>
+        <Dimension DataMember="FYEAR" DefaultId="DataItem3" />
+        <Dimension DataMember="fMONTH" DateTimeGroupInterval="Month" DefaultId="DataItem4" />
+        <Dimension DataMember="Mdate" DateTimeGroupInterval="Day" DefaultId="DataItem1" />
+        <Dimension DataMember="ProgramCode" DefaultId="DataItem5" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem3" />
+        <Dimension DefaultId="DataItem4" />
+      </HiddenDimensions>
+      <FormatRules>
+        <PivotItemFormatRule Name="Format Rule 1" DataItem="DataItem0" DataItemApplyTo="DataItem0">
+          <FormatConditionValue Condition="NotEqual">
+            <AppearanceSettings AppearanceType="Purple" />
+            <Value1 Type="System.String" Value="&quot;&quot;" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+        <PivotItemFormatRule Name="Format Rule 2" DataItem="DataItem1" DataItemApplyTo="DataItem1">
+          <FormatConditionValue Condition="NotEqual">
+            <AppearanceSettings AppearanceType="PaleBlue" />
+            <Value1 Type="System.Int32" Value="0" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+      </FormatRules>
+      <Columns>
+        <Column DefaultId="DataItem0" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem1" />
+        <Row DefaultId="DataItem5" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem2" />
+      </Values>
+      <LayoutType>Tabular</LayoutType>
+    </Pivot>
+    <TabContainer ComponentName="tabContainerDashboardItem1" Name="Tab Container 1">
+      <Pages>
+        <Page ComponentName="dashboardTabPage1" Name="Page 1" />
+        <Page ComponentName="dashboardTabPage2" Name="Page 2" />
+        <Page ComponentName="dashboardTabPage3" Name="Page 3" />
+        <Page ComponentName="dashboardTabPage4" Name="Page 4" />
+      </Pages>
+    </TabContainer>
+    <Pie ComponentName="pieDashboardItem1" Name="Pies 1" ParentContainer="dashboardTabPage2" DataSource="sqlDataSource1" DataMember="DASB_RPT" LabelContentType="ArgumentValueAndPercent">
+      <DataItems>
+        <Measure DataMember="Calculated Field 1" SummaryType="Count" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Measure>
+        <Dimension DataMember="Mdate" DefaultId="DataItem2" />
+        <Dimension DataMember="TBLTYPE" DefaultId="DataItem3" />
+        <Dimension DataMember="fMONTH" DateTimeGroupInterval="Month" DefaultId="DataItem1" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+        <SeriesDimension DefaultId="DataItem1" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem3" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" ParentContainer="dashboardTabPage3" DataSource="sqlDataSource1" DataMember="DASB_RPT">
+      <DataItems>
+        <Dimension DataMember="Mdate" DateTimeGroupInterval="Day" DefaultId="DataItem0" />
+        <Dimension DataMember="TBLTYPE" DateTimeGroupInterval="Day" DefaultId="DataItem1" />
+        <Measure DataMember="TotalCount" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem1" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <AxisY Logarithmic="true" LogarithmicBase="Base2">
+            <NumericFormat FormatType="Number" Precision="0" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple SeriesType="StackedBar">
+              <Value DefaultId="DataItem2" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <AxisX EnableZooming="true" LimitVisiblePoints="true" VisiblePointsCount="7" />
+    </Chart>
+    <Pivot ComponentName="pivotDashboardItem2" Name="EA Intake Data Entry Activity" ShowCaption="false" ParentContainer="groupDashboardItem1" DataSource="sqlDataSource1" DataMember="DASB_RPT">
+      <DataItems>
+        <Measure DataMember="TotalCount" DefaultId="DataItem0" />
+        <Dimension DataMember="Mdate" DateTimeGroupInterval="Day" DefaultId="DataItem1" />
+        <Dimension DataMember="TBLTYPE" DefaultId="DataItem2" />
+      </DataItems>
+      <FormatRules>
+        <PivotItemFormatRule Name="Format Rule 1" DataItem="DataItem1" DataItemApplyTo="DataItem1">
+          <FormatConditionValue Condition="NotEqual">
+            <AppearanceSettings AppearanceType="PaleBlue" />
+            <Value1 Type="System.Int32" Value="0" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+        <PivotItemFormatRule Name="Format Rule 2" DataItem="DataItem2" DataItemApplyTo="DataItem2">
+          <FormatConditionValue Condition="NotEqual">
+            <AppearanceSettings AppearanceType="Blue" />
+            <Value1 Type="System.String" Value="" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+      </FormatRules>
+      <Columns>
+        <Column DefaultId="DataItem2" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem1" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pivot>
+    <Card ComponentName="cardDashboardItem2" Name="Cards 1" ShowCaption="false" ParentContainer="groupDashboardItem2" DataSource="sqlDataSource1" DataMember="DASB_RPT">
+      <DataItems>
+        <Dimension DataMember="ProgramCode" DefaultId="DataItem0" />
+        <Measure DataMember="TotalCount" DefaultId="DataItem3" />
+        <Dimension DataMember="TBLTYPE" DefaultId="DataItem2" />
+        <Dimension DataMember="CurrDay" DefaultId="DataItem4" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </HiddenDimensions>
+      <FormatRules>
+        <CardItemFormatRule Name="Format Rule 2">
+          <FormatConditionValue Condition="NotEqual">
+            <AppearanceSettings AppearanceType="Blue" />
+            <Value1 Type="System.String" Value="" />
+          </FormatConditionValue>
+          <CardFormatRuleLayoutElement />
+        </CardItemFormatRule>
+        <CardItemFormatRule Name="Format Rule 3">
+          <FormatConditionValue Condition="NotEqual">
+            <AppearanceSettings AppearanceType="PaleBlue" />
+            <Value1 Type="System.Int32" Value="0" />
+          </FormatConditionValue>
+          <CardFormatRuleLayoutElement />
+        </CardItemFormatRule>
+      </FormatRules>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem4" />
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Card>
+        <ActualValue DefaultId="DataItem3" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+        <LayoutTemplate Type="Stretched">
+          <TopValue Visible="true" ValueType="ActualValue" DimensionIndex="0" />
+          <MainValue Visible="true" ValueType="Title" DimensionIndex="0" />
+          <SubValue Visible="true" ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 Visible="true" ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 Visible="true" ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <DeltaIndicator Visible="true" />
+          <Sparkline Visible="true" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+    <ComboBox ComponentName="comboBoxDashboardItem1" Name="Program" ParentContainer="groupDashboardItem1" DataSource="sqlDataSource1" DataMember="DASB_RPT" FilterString="[DataItem2] = 'Y'" ShowAllValue="false" EnableSearch="true">
+      <InteractivityOptions IgnoreMasterFilters="false" />
+      <DataItems>
+        <Dimension DataMember="Program" DefaultId="DataItem0" />
+        <Dimension DataMember="ProgramCode" DefaultId="DataItem1" />
+        <Dimension DataMember="DEP_INTAKE_PROG" DefaultId="DataItem2" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem1" />
+        <Dimension DefaultId="DataItem2" />
+      </HiddenDimensions>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+    <ComboBox ComponentName="comboBoxDashboardItem2" Name="Programs" ParentContainer="groupDashboardItem2" DataSource="sqlDataSource1" DataMember="DASB_RPT" FilterString="[DataItem2] = 'N'" ShowAllValue="false">
+      <DataItems>
+        <Dimension DataMember="Program" DefaultId="DataItem0" />
+        <Dimension DataMember="ProgramCode" DefaultId="DataItem1" />
+        <Dimension DataMember="DEP_INTAKE_PROG" DefaultId="DataItem2" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem1" />
+        <Dimension DefaultId="DataItem2" />
+      </HiddenDimensions>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+    <Card ComponentName="cardDashboardItem1" Name="Cards 1" ParentContainer="dashboardTabPage4" DataSource="sqlDataSource1" DataMember="DASB_RPT">
+      <DataItems>
+        <Dimension DataMember="TBLTYPE" DefaultId="DataItem1" />
+        <Dimension DataMember="ProgramCode" DefaultId="DataItem2" />
+        <Measure DataMember="TotalCount" DefaultId="DataItem0" />
+        <Measure DataMember="CurrDay" SummaryType="Count" DefaultId="DataItem3" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem2" />
+      </HiddenDimensions>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem1" />
+      </SeriesDimensions>
+      <Card>
+        <ActualValue DefaultId="DataItem0" />
+        <TargetValue DefaultId="DataItem3" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+        <LayoutTemplate Type="Stretched">
+          <TopValue Visible="true" ValueType="ActualValue" DimensionIndex="0" />
+          <MainValue Visible="true" ValueType="Title" DimensionIndex="0" />
+          <SubValue Visible="true" ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 Visible="true" ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 Visible="true" ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <DeltaIndicator Visible="true" />
+          <Sparkline Visible="true" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" ParentContainer="groupDashboardItem3" DataSource="sqlDataSource1" DataMember="DASB_RPT">
+      <DataItems>
+        <Measure DataMember="TotalCount" DefaultId="DataItem0" />
+        <Dimension DataMember="CurrDay" DefaultId="DataItem1" />
+        <Dimension DataMember="ProgramCode" DefaultId="DataItem2" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem2" />
+      </HiddenDimensions>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem0" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+      <ColumnFilterOptions />
+    </Grid>
+    <ComboBox ComponentName="comboBoxDashboardItem3" Name="Program" ParentContainer="groupDashboardItem3" DataSource="sqlDataSource1" DataMember="DASB_RPT" FilterString="[DataItem2] = 'N'">
+      <DataItems>
+        <Dimension DataMember="Program" DefaultId="DataItem0" />
+        <Dimension DataMember="ProgramCode" DefaultId="DataItem1" />
+        <Dimension DataMember="DEP_INTAKE_PROG" DefaultId="DataItem2" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem1" />
+        <Dimension DefaultId="DataItem2" />
+      </HiddenDimensions>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+  </Items>
+  <Groups>
+    <Group ComponentName="groupDashboardItem1" Name="Group 1" ShowCaption="false" />
+    <Group ComponentName="groupDashboardItem2" Name="Group 2" ShowCaption="false" />
+    <Group ComponentName="groupDashboardItem3" Name="Group 3" ShowCaption="false" />
+  </Groups>
+  <LayoutOptions>
+    <Width Value="1090" />
+  </LayoutOptions>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Orientation="Vertical">
+        <LayoutTabContainer DashboardItem="tabContainerDashboardItem1">
+          <LayoutTabPage DashboardItem="dashboardTabPage1">
+            <LayoutItem DashboardItem="pivotDashboardItem1" />
+          </LayoutTabPage>
+          <LayoutTabPage DashboardItem="dashboardTabPage3">
+            <LayoutItem DashboardItem="chartDashboardItem1" />
+          </LayoutTabPage>
+          <LayoutTabPage DashboardItem="dashboardTabPage2">
+            <LayoutItem DashboardItem="pieDashboardItem1" />
+          </LayoutTabPage>
+          <LayoutTabPage DashboardItem="dashboardTabPage4">
+            <LayoutItem DashboardItem="cardDashboardItem1" />
+          </LayoutTabPage>
+        </LayoutTabContainer>
+        <LayoutGroup>
+          <LayoutGroup DashboardItem="groupDashboardItem1">
+            <LayoutGroup Orientation="Vertical">
+              <LayoutItem DashboardItem="comboBoxDashboardItem1" />
+              <LayoutItem DashboardItem="pivotDashboardItem2" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup DashboardItem="groupDashboardItem2" Weight="1.1065693430656935">
+            <LayoutGroup Orientation="Vertical">
+              <LayoutItem DashboardItem="comboBoxDashboardItem2" />
+              <LayoutItem DashboardItem="cardDashboardItem2" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup DashboardItem="groupDashboardItem3">
+            <LayoutGroup Orientation="Vertical">
+              <LayoutItem DashboardItem="comboBoxDashboardItem3" />
+              <LayoutItem DashboardItem="gridDashboardItem1" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

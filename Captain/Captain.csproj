@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Captain</RootNamespace>
+    <AssemblyName>Captain</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <ProjectGuid>{293178C3-5FE0-45AA-ABEF-AB3A99FCA3C0}</ProjectGuid>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="custdocsign.aspx" />
+    <Content Include="Default.html" />
+    <Content Include="Default.json" />
+    <Content Include="downloadfiles.aspx" />
+    <Content Include="Enterpriselib\Aspose.Cells.dll" />
+    <Content Include="Enterpriselib\CarlosAg.ExcelXmlWriter.dll" />
+    <Content Include="Enterpriselib\DevExpress.BonusSkins.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Charts.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.CodeParser.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Dashboard.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.Dashboard.v22.2.Web.dll" />
+    <Content Include="Enterpriselib\DevExpress.Dashboard.v22.2.Web.WebForms.dll" />
+    <Content Include="Enterpriselib\DevExpress.Dashboard.v22.2.Win.dll" />
+    <Content Include="Enterpriselib\DevExpress.Data.Desktop.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Data.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.DataAccess.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.DataAccess.v22.2.UI.dll" />
+    <Content Include="Enterpriselib\DevExpress.DataVisualization.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.Diagram.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.Drawing.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.ExpressApp.Dashboards.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.ExpressApp.Dashboards.Win.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.ExpressApp.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.ExpressApp.Win.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Images.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Map.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.Office.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.Pdf.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.Pdf.v22.2.Drawing.dll" />
+    <Content Include="Enterpriselib\DevExpress.Persistent.Base.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.PivotGrid.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.Printing.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.RichEdit.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.RichEdit.v22.2.Export.dll" />
+    <Content Include="Enterpriselib\DevExpress.Sparkline.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.SpellChecker.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.Spreadsheet.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.TreeMap.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.Utils.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Utils.v22.2.UI.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.ASPxDiagram.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.ASPxGantt.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.ASPxHtmlEditor.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.ASPxPivotGrid.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.ASPxRichEdit.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.ASPxScheduler.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.ASPxSpellChecker.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.ASPxSpreadsheet.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.ASPxTreeList.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.Bootstrap.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.Resources.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Web.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.Xpo.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraBars.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraCharts.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraCharts.v22.2.Extensions.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraCharts.v22.2.UI.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraCharts.v22.2.Wizard.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraDiagram.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraEditors.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraGantt.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraGauges.v22.2.Core.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraGauges.v22.2.Presets.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraGauges.v22.2.Win.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraGrid.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraLayout.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraMap.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraNavBar.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraPivotGrid.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraPrinting.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraReports.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraReports.v22.2.Web.WebForms.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraRichEdit.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraTreeList.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraTreeMap.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraTreeMap.v22.2.UI.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraVerticalGrid.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpress.XtraWizard.v22.2.dll" />
+    <Content Include="Enterpriselib\DevExpresss.DashboardWin.CustomItemExtension.dll" />
+    <Content Include="Enterpriselib\ExcelPackage.dll" />
+    <Content Include="Enterpriselib\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Enterpriselib\itextsharp.dll" />
+    <Content Include="Enterpriselib\itextsharp.xmlworker.dll" />
+    <Content Include="Enterpriselib\log4net.dll" />
+    <Content Include="Enterpriselib\log4net.xml" />
+    <Content Include="Enterpriselib\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="Enterpriselib\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+    <Content Include="Enterpriselib\Microsoft.Practices.ObjectBuilder.dll" />
+    <Content Include="Enterpriselib\Microsoft.Practices.ObjectBuilder2.dll" />
+    <Content Include="Enterpriselib\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="Enterpriselib\Microsoft.Practices.Unity.dll" />
+    <Content Include="Enterpriselib\Microsoft.Practices.Unity.Interception.dll" />
+    <Content Include="Enterpriselib\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="Enterpriselib\Microsoft.ReportViewer.DataVisualization.dll" />
+    <Content Include="Enterpriselib\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Content Include="Enterpriselib\Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="Enterpriselib\NPOI.dll" />
+    <Content Include="Enterpriselib\NPOI.OOXML.dll" />
+    <Content Include="Enterpriselib\NPOI.OpenXml4Net.dll" />
+    <Content Include="Enterpriselib\NPOI.OpenXmlFormats.dll" />
+    <Content Include="Enterpriselib\SautinSoft.PdfFocus.dll" />
+    <Content Include="Enterpriselib\Spire.Doc.dll" />
+    <Content Include="Enterpriselib\Spire.License.dll" />
+    <Content Include="Enterpriselib\Spire.Pdf.dll" />
+    <Content Include="Enterpriselib\SRVTextToImage.dll" />
+    <Content Include="Enterpriselib\System.IO.Compression.dll" />
+    <Content Include="Enterpriselib\System.IO.Compression.ZipFile.dll" />
+    <Content Include="Enterpriselib\System.Linq.Dynamic.Core.dll" />
+    <Content Include="Enterpriselib\Wisej.Web.Ext.ColumnFilter.dll" />
+    <Content Include="Enterpriselib\Wisej.Web.Ext.DevExpress.Dashboard.dll" />
+    <Content Include="error.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Fonts\antonio\Antonio-Bold.ttf" />
+    <Content Include="Fonts\antonio\Antonio-Light.ttf" />
+    <Content Include="Fonts\antonio\Antonio-Regular.ttf" />
+    <Content Include="Fonts\WINGDNG2.TTF" />
+    <Content Include="imagePreview.aspx" />
+    <Content Include="NEWCOI_Copy_Details.txt" />
+    <Content Include="optin.aspx" />
+    <Content Include="Reports\ZipCodeReport.rdlc" />
+    <Content Include="Resources\Css\signature-pad-custdocsign.css" />
+    <Content Include="Resources\HelpFiles\Captain_Help.chm" />
+    <Content Include="Resources\HelpFiles\Captain_Help1.chm" />
+    <Content Include="Resources\HelpFiles\Captain_Help2.chm" />
+    <Content Include="Resources\HelpFiles\Captain_Help3.chm" />
+    <Content Include="Resources\HelpFiles\Captain_HelpL.chm" />
+    <Content Include="Resources\Images\bgImageCaptain-01.png" />
+    <Content Include="Resources\Images\check-mark.png" />
+    <Content Include="Resources\Images\Kranthi_photo.jpg" />
+    <Content Include="Resources\Images\Kranthi_photo1.jpg" />
+    <Content Include="Resources\Images\loader.gif" />
+    <Content Include="Resources\Images\Logo.JPG" />
+    <Content Include="Resources\Images\MenuIcons\components.png" />
+    <Content Include="Resources\Images\msword.png" />
+    <Content Include="Resources\Images\New Landingpage design1-01.png" />
+    <Content Include="Resources\Images\Next1.ico" />
+    <Content Include="Resources\Images\StateofTexas_logo.png" />
+    <Content Include="Resources\js\APP_JS_Default_functions.js" />
+    <Content Include="Resources\js\jquery.min.js" />
+    <Content Include="Resources\js\moment.min.js" />
+    <Content Include="Resources\js\toaster\jquery.toast.css" />
+    <Content Include="Resources\js\toaster\jquery.toast.js" />
+    <Content Include="Resources\Pdf\2000growthchart_Modified.pdf" />
+    <Content Include="Resources\Pdf\boys_bmi.pdf" />
+    <Content Include="Resources\Pdf\boys_hc_0-36_mo.pdf" />
+    <Content Include="Resources\Pdf\boys_ht_0-36_mo.pdf" />
+    <Content Include="Resources\Pdf\boys_ht_2-20_yr.pdf" />
+    <Content Include="Resources\Pdf\boys_wt_0-36_mo.pdf" />
+    <Content Include="Resources\Pdf\boys_wt_2-20_yr.pdf" />
+    <Content Include="Resources\Pdf\boys_wt_ln_0-36_mo.pdf" />
+    <Content Include="Resources\Pdf\boys_wt_st.pdf" />
+    <Content Include="Resources\Pdf\girls_bmi.pdf" />
+    <Content Include="Resources\Pdf\girls_hc_0-36_mo.pdf" />
+    <Content Include="Resources\Pdf\girls_ht_0-36_mo.pdf" />
+    <Content Include="Resources\Pdf\girls_ht_2-20_yr.pdf" />
+    <Content Include="Resources\Pdf\girls_wt_0-36_mo.pdf" />
+    <Content Include="Resources\Pdf\girls_wt_2-20_yr.pdf" />
+    <Content Include="Resources\Pdf\girls_wt_ln_0-36_mo.pdf" />
+    <Content Include="Resources\Pdf\girls_wt_st.pdf" />
+    <Content Include="Resources\Pdf\Sample.bat" />
+    <Content Include="Resources\Pdf\test.pdf" />
+    <Content Include="Resources\Pdf\TMSB4601.PDF" />
+    <Content Include="Resources\PIPwelcome.html" />
+    <Content Include="signature.aspx" />
+    <Content Include="Themes\Captain-Styles.theme" />
+    <Content Include="Themes\NavigationBar.mixin.theme" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fonts\antonio\SIL Open Font License.txt" />
+    <Content Include="Resources\Css\ie9.css" />
+    <Content Include="Resources\Css\signature-pad.css" />
+    <Content Include="Resources\Css\signature.jpg" />
+    <Content Include="Resources\Icons\16X16\AddItem.gif" />
+    <Content Include="Resources\Icons\16X16\ArrowDown.gif" />
+    <Content Include="Resources\Icons\16X16\ArrowDownDisabled.gif" />
+    <Content Include="Resources\Icons\16X16\ArrowUp.gif" />
+    <Content Include="Resources\Icons\16X16\ArrowUpDisabled.gif" />
+    <Content Include="Resources\Icons\16X16\arrow_up.JPG" />
+    <Content Include="Resources\Icons\16X16\BlankIcon.gif" />
+    <Content Include="Resources\Icons\16X16\CAL.png" />
+    <Content Include="Resources\Icons\16X16\cancel.gif" />
+    <Content Include="Resources\Icons\16X16\CancelChanges.gif" />
+    <Content Include="Resources\Icons\16X16\CheckBoxChecked.gif" />
+    <Content Include="Resources\Icons\16X16\CheckBoxChecked.JPG" />
+    <Content Include="Resources\Icons\16X16\CheckBoxCheckedGray.gif" />
+    <Content Include="Resources\Icons\16X16\CheckBoxUnchecked.gif" />
+    <Content Include="Resources\Icons\16X16\CheckBoxUnchecked.JPG" />
+    <Content Include="Resources\Icons\16X16\ClearForm.gif" />
+    <Content Include="Resources\Icons\16X16\Close.gif" />
+    <Content Include="Resources\Icons\16X16\Collapse.gif" />
+    <Content Include="Resources\Icons\16X16\Comment.gif" />
+    <Content Include="Resources\Icons\16X16\Copy.gif" />
+    <Content Include="Resources\Icons\16X16\CrossHairTarget.gif" />
+    <Content Include="Resources\Icons\16X16\Cut.gif" />
+    <Content Include="Resources\Icons\16X16\Delete.gif" />
+    <Content Include="Resources\Icons\16X16\DeleteItem.gif" />
+    <Content Include="Resources\Icons\16X16\Document.gif" />
+    <Content Include="Resources\Icons\16X16\Dossier.gif" />
+    <Content Include="Resources\Icons\16X16\Download.gif" />
+    <Content Include="Resources\Icons\16X16\DropDownArrow.gif" />
+    <Content Include="Resources\Icons\16X16\DropDownArrowDown.gif" />
+    <Content Include="Resources\Icons\16X16\DropDownArrowUp.gif" />
+    <Content Include="Resources\Icons\16X16\EditIcon.gif" />
+    <Content Include="Resources\Icons\16X16\EditInformation.gif" />
+    <Content Include="Resources\Icons\16X16\Entry.gif" />
+    <Content Include="Resources\Icons\16X16\ErrorX.gif" />
+    <Content Include="Resources\Icons\16X16\Event.gif" />
+    <Content Include="Resources\Icons\16X16\Expand.gif" />
+    <Content Include="Resources\Icons\16X16\Export.gif" />
+    <Content Include="Resources\Icons\16X16\FieldChooser.gif" />
+    <Content Include="Resources\Icons\16X16\Filter.gif" />
+    <Content Include="Resources\Icons\16X16\Find.gif" />
+    <Content Include="Resources\Icons\16X16\FirstPage.gif" />
+    <Content Include="Resources\Icons\16X16\FitPage.gif" />
+    <Content Include="Resources\Icons\16X16\FitWidth.gif" />
+    <Content Include="Resources\Icons\16X16\Folder.gif" />
+    <Content Include="Resources\Icons\16X16\FolderLocked.gif" />
+    <Content Include="Resources\Icons\16X16\GIF.gif" />
+    <Content Include="Resources\Icons\16X16\Globe.gif" />
+    <Content Include="Resources\Icons\16X16\Grid.gif" />
+    <Content Include="Resources\Icons\16X16\Hand.gif" />
+    <Content Include="Resources\Icons\16X16\Help.gif" />
+    <Content Include="Resources\Icons\16X16\History.gif" />
+    <Content Include="Resources\Icons\16X16\ImageTypeIcon.gif" />
+    <Content Include="Resources\Icons\16X16\LastPage.gif" />
+    <Content Include="Resources\Icons\16X16\Link.gif" />
+    <Content Include="Resources\Icons\16X16\link1.png" />
+    <Content Include="Resources\Icons\16X16\link2.png" />
+    <Content Include="Resources\Icons\16X16\List.gif" />
+    <Content Include="Resources\Icons\16X16\MSExcel.gif" />
+    <Content Include="Resources\Icons\16X16\Note.gif" />
+    <Content Include="Resources\Icons\16X16\Notes1.gif" />
+    <Content Include="Resources\Icons\16X16\Notes1.JPG" />
+    <Content Include="Resources\Icons\16X16\Notes2.gif" />
+    <Content Include="Resources\Icons\16X16\Notes2.JPG" />
+    <Content Include="Resources\Icons\16X16\Open.gif" />
+    <Content Include="Resources\Icons\16X16\PageFirst.gif" />
+    <Content Include="Resources\Icons\16X16\PageLast.gif" />
+    <Content Include="Resources\Icons\16X16\PageNext.gif" />
+    <Content Include="Resources\Icons\16X16\PagePrevious.gif" />
+    <Content Include="Resources\Icons\16X16\Paste.gif" />
+    <Content Include="Resources\Icons\16X16\PDF.gif" />
+    <Content Include="Resources\Icons\16X16\PDFIcon.gif" />
+    <Content Include="Resources\Icons\16X16\PDFNew.gif" />
+    <Content Include="Resources\Icons\16X16\PreviousPage.gif" />
+    <Content Include="Resources\Icons\16X16\PreviousView.gif" />
+    <Content Include="Resources\Icons\16X16\Print.gif" />
+    <Content Include="Resources\Icons\16X16\RecentSearch.png" />
+    <Content Include="Resources\Icons\16X16\RecentSearch1.png" />
+    <Content Include="Resources\Icons\16X16\Redo.gif" />
+    <Content Include="Resources\Icons\16X16\Refresh.gif" />
+    <Content Include="Resources\Icons\16X16\sal.png" />
+    <Content Include="Resources\Icons\16X16\save.gif" />
+    <Content Include="Resources\Icons\16X16\Save1.gif" />
+    <Content Include="Resources\Icons\16X16\ScrRep.gif" />
+    <Content Include="Resources\Icons\16X16\sign1.png" />
+    <Content Include="Resources\Icons\16X16\Site.gif" />
+    <Content Include="Resources\Icons\16X16\TabSheet.gif" />
+    <Content Include="Resources\Icons\16X16\Task.gif" />
+    <Content Include="Resources\Icons\16X16\User.gif" />
+    <Content Include="Resources\Icons\16X16\Users.gif" />
+    <Content Include="Resources\Icons\16X16\WaitIndicator.gif" />
+    <Content Include="Resources\Icons\24X24\admin.gif" />
+    <Content Include="Resources\Icons\24X24\AgencyPartners.gif" />
+    <Content Include="Resources\Icons\24X24\casemanagement.gif" />
+    <Content Include="Resources\Icons\24X24\Dashboard.gif" />
+    <Content Include="Resources\Icons\24X24\Headstart.gif" />
+    <Content Include="Resources\Icons\24X24\HideSideBar.gif" />
+    <Content Include="Resources\Icons\24X24\housing.gif" />
+    <Content Include="Resources\Icons\24X24\Housing.png" />
+    <Content Include="Resources\Icons\24X24\inbox.GIF" />
+    <Content Include="Resources\Icons\24X24\operations.GIF" />
+    <Content Include="Resources\Icons\24X24\Person.png" />
+    <Content Include="Resources\Icons\24X24\registrations.GIF" />
+    <Content Include="Resources\Icons\24X24\ShowSideBar.gif" />
+    <Content Include="Resources\Icons\48X48\Information.gif" />
+    <Content Include="Resources\Icons\48X48\Information.png" />
+    <Content Include="Resources\Icons\48X48\Question.gif" />
+    <Content Include="Resources\Icons\48X48\Users.gif" />
+    <Content Include="Resources\Icons\favicon.ico" />
+    <Content Include="Resources\Icons\faviconblack.ico" />
+    <Content Include="Resources\Icons\faviconblue.ico" />
+    <Content Include="Resources\Icons\favicondarkblue.ico" />
+    <Content Include="Resources\Icons\faviconold.ico" />
+    <Content Include="Resources\Icons\faviconOrange.ico" />
+    <Content Include="Resources\Icons\faviconthickblue.ico" />
+    <Content Include="Resources\Images\1223.jpg" />
+    <Content Include="Resources\Images\16x16\addItem.png" />
+    <Content Include="Resources\Images\16x16\addItem.svg" />
+    <Content Include="Resources\Images\16x16\delete.png" />
+    <Content Include="Resources\Images\16x16\editItem.png" />
+    <Content Include="Resources\Images\16x16\editItem1.png" />
+    <Content Include="Resources\Images\16x16\help.png" />
+    <Content Include="Resources\Images\16x16\msexcel.png" />
+    <Content Include="Resources\Images\16x16\print.png" />
+    <Content Include="Resources\Images\AddItem.gif" />
+    <Content Include="Resources\Images\Administrator.png" />
+    <Content Include="Resources\Images\arrow-left-icon.png" />
+    <Content Include="Resources\Images\arrow-right-icon.png" />
+    <Content Include="Resources\Images\Arrow.png" />
+    <Content Include="Resources\Images\Arrow1.png" />
+    <Content Include="Resources\Images\Backgrounds\bgimg.jpg" />
+    <Content Include="Resources\Images\Backgrounds\capsystems-login-bkg-1.jpg" />
+    <Content Include="Resources\Images\Backgrounds\capsystems-login-bkg-2.jpg" />
+    <Content Include="Resources\Images\Backgrounds\capsystems-login-bkg-3.jpg" />
+    <Content Include="Resources\Images\bar-collapse.svg" />
+    <Content Include="Resources\Images\bar-expand.svg" />
+    <Content Include="Resources\Images\bg1122.jpg" />
+    <Content Include="Resources\Images\blank.png" />
+    <Content Include="Resources\Images\bullet-blue.png" />
+    <Content Include="Resources\Images\bullet-grey.png" />
+    <Content Include="Resources\Images\cap1.png" />
+    <Content Include="Resources\Images\cap101.png" />
+    <Content Include="Resources\Images\cap2.png" />
+    <Content Include="Resources\Images\cap3.png" />
+    <Content Include="Resources\Images\cap4.png" />
+    <Content Include="Resources\Images\cap5.png" />
+    <Content Include="Resources\Images\cap6.png" />
+    <Content Include="Resources\Images\caplogo-01.png" />
+    <Content Include="Resources\Images\caplogo2-01.png" />
+    <Content Include="Resources\Images\caplogo2-0122.png" />
+    <Content Include="Resources\Images\capsystemslandscape.png" />
+    <Content Include="Resources\Images\Capsystems_Logo.png" />
+    <Content Include="Resources\Images\Capsystems_SQ_Logo.png" />
+    <Content Include="Resources\Images\Capsystems_SQ_Logo1.png" />
+    <Content Include="Resources\Images\captain_round_logo.svg" />
+    <Content Include="Resources\Images\CaseManagement.png" />
+    <Content Include="Resources\Images\cross.ico" />
+    <Content Include="Resources\Images\Dashboard.png" />
+    <Content Include="Resources\Images\faq-icon.png" />
+    <Content Include="Resources\Images\HeadStart.png" />
+    <Content Include="Resources\Images\help.svg" />
+    <Content Include="Resources\Images\helpblu.png" />
+    <Content Include="Resources\Images\iCon.png" />
+    <Content Include="Resources\Images\iCon2.png" />
+    <Content Include="Resources\Images\iCon3.png" />
+    <Content Include="Resources\Images\key.png" />
+    <Content Include="Resources\Images\keyblu.png" />
+    <Content Include="Resources\Images\landimg1-01-01.jpg" />
+    <Content Include="Resources\Images\landimg1-01.jpg" />
+    <Content Include="Resources\Images\landingpagebg2-01.jpg" />
+    <Content Include="Resources\Images\LoginBackground.png" />
+    <Content Include="Resources\Images\logo-captain-login.png" />
+    <Content Include="Resources\Images\logout.png" />
+    <Content Include="Resources\Images\logout.svg" />
+    <Content Include="Resources\Images\logoutbr.png" />
+    <Content Include="Resources\Images\MenuIcons\01.png" />
+    <Content Include="Resources\Images\MenuIcons\02.png" />
+    <Content Include="Resources\Images\MenuIcons\03.png" />
+    <Content Include="Resources\Images\MenuIcons\07.png" />
+    <Content Include="Resources\Images\MenuIcons\99.png" />
+    <Content Include="Resources\Images\MenuIcons\999.png" />
+    <Content Include="Resources\Images\MenuIcons\Administrator.png" />
+    <Content Include="Resources\Images\MenuIcons\b_Admin.png" />
+    <Content Include="Resources\Images\MenuIcons\b_casemanagement.png" />
+    <Content Include="Resources\Images\MenuIcons\b_CEAP.gif" />
+    <Content Include="Resources\Images\MenuIcons\b_CEAP.png" />
+    <Content Include="Resources\Images\MenuIcons\b_Dashboard.png" />
+    <Content Include="Resources\Images\MenuIcons\b_Emergency.png" />
+    <Content Include="Resources\Images\MenuIcons\b_Headstart.png" />
+    <Content Include="Resources\Images\MenuIcons\Casemanagement.png" />
+    <Content Include="Resources\Images\MenuIcons\CEAP.gif" />
+    <Content Include="Resources\Images\MenuIcons\CEAP.png" />
+    <Content Include="Resources\Images\MenuIcons\Dashboard.png" />
+    <Content Include="Resources\Images\MenuIcons\Emergency_Assistance.png" />
+    <Content Include="Resources\Images\MenuIcons\formicon.png" />
+    <Content Include="Resources\Images\MenuIcons\formicon1.png" />
+    <Content Include="Resources\Images\MenuIcons\formicon2.png" />
+    <Content Include="Resources\Images\MenuIcons\formicon3.png" />
+    <Content Include="Resources\Images\MenuIcons\formicon_white.png" />
+    <Content Include="Resources\Images\MenuIcons\Headstart.png" />
+    <Content Include="Resources\Images\MenuIcons\Reports.png" />
+    <Content Include="Resources\Images\MenuIcons\Run.png" />
+    <Content Include="Resources\Images\MenuIcons\Screens.png" />
+    <Content Include="Resources\Images\MenuIcons\support-icon.png" />
+    <Content Include="Resources\Images\MenuIcons\w_Admin.png" />
+    <Content Include="Resources\Images\MenuIcons\w_casemanagement.png" />
+    <Content Include="Resources\Images\MenuIcons\w_CEAP.png" />
+    <Content Include="Resources\Images\MenuIcons\w_Dashboard.png" />
+    <Content Include="Resources\Images\MenuIcons\w_Emergency.png" />
+    <Content Include="Resources\Images\MenuIcons\w_Headstart.png" />
+    <Content Include="Resources\Images\New Landingpage design-01.jpg" />
+    <Content Include="Resources\Images\New Landingpage design-02-01.jpg" />
+    <Content Include="Resources\Images\rightwhite.png" />
+    <Content Include="Resources\Images\RoundCaptain_logo.png" />
+    <Content Include="Resources\Images\RoundCaptain_logo_WaterMark.png" />
+    <Content Include="Resources\Images\splash-logo.png" />
+    <Content Include="Resources\Images\tick.ico" />
+    <Content Include="Resources\Images\tickmark_green.png" />
+    <Content Include="Resources\Images\tickmark_green1.png" />
+    <Content Include="Resources\Images\user.svg" />
+    <Content Include="Resources\Images\WindowIconFinal.png" />
+    <Content Include="Resources\js\app.js" />
+    <Content Include="Resources\js\DashboardClient.js" />
+    <Content Include="Resources\js\signature_pad.umd.js" />
+    <Content Include="Resources\pipdocuploademail.html" />
+    <Content Include="Resources\PIPDOCVERmailFormat.html" />
+    <Content Include="Themes\CAPTAINstyles.css" />
+    <Content Include="UploadService.asmx" />
+    <Content Include="ViewPdfForm.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="custdocsign.aspx.cs">
+      <DependentUpon>custdocsign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="custdocsign.aspx.designer.cs">
+      <DependentUpon>custdocsign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="downloadfiles.aspx.cs">
+      <DependentUpon>downloadfiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="downloadfiles.aspx.designer.cs">
+      <DependentUpon>downloadfiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="imagePreview.aspx.cs">
+      <DependentUpon>imagePreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="imagePreview.aspx.designer.cs">
+      <DependentUpon>imagePreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterPage.designer.cs">
+      <DependentUpon>MasterPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="optin.aspx.cs">
+      <DependentUpon>optin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="optin.aspx.designer.cs">
+      <DependentUpon>optin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RemoteRequestInfo.cs" />
+    <Compile Include="Reports\DataSet1.cs" />
+    <Compile Include="Reports\DataSet1.designer.cs">
+      <DependentUpon>DataSet1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="signature.aspx.cs">
+      <DependentUpon>signature.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signature.aspx.designer.cs">
+      <DependentUpon>signature.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadService.asmx.cs">
+      <DependentUpon>UploadService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViewPdfForm.aspx.cs">
+      <DependentUpon>ViewPdfForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPdfForm.aspx.designer.cs">
+      <DependentUpon>ViewPdfForm.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Templates\" />
+    <Folder Include="E-DRIVE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Linq.Dynamic.Core">
+      <Version>1.3.7</Version>
+    </PackageReference>
+    <PackageReference Include="Twilio">
+      <Version>6.15.2</Version>
+    </PackageReference>
+    <PackageReference Include="Wisej-3">
+      <Version>3.5.11</Version>
+    </PackageReference>
+    <PackageReference Include="Wisej-3-AspNetControl">
+      <Version>3.5.11</Version>
+    </PackageReference>
+    <PackageReference Include="Wisej-3-ColumnFilter">
+      <Version>3.5.11</Version>
+    </PackageReference>
+    <PackageReference Include="Wisej-3-NavigationBar">
+      <Version>3.5.11</Version>
+    </PackageReference>
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v24.1">
+      <HintPath>Enterpriselib\Devexpress_v24.1\DevExpress.Web.ASPxPivotGrid.v24.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxTreeList.v24.1">
+      <HintPath>Enterpriselib\Devexpress_v24.1\DevExpress.Web.ASPxTreeList.v24.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.Bootstrap.v24.1">
+      <HintPath>Enterpriselib\Devexpress_v24.1\DevExpress.Web.Bootstrap.v24.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v24.1.Web.WebForms">
+      <HintPath>Enterpriselib\Devexpress_v24.1\DevExpress.XtraReports.v24.1.Web.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Enterpriselib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Applications\Wisej\CAPTAINWisej\CAPTAINWisej\Captain\Enterpriselib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\..\Applications\Wisej\CAPTAINWisej\CAPTAINWisej\Captain\Enterpriselib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\..\Applications\Wisej\CAPTAINWisej\CAPTAINWisej\Captain\Enterpriselib\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder">
+      <HintPath>..\..\..\Applications\Wisej\CAPTAINWisej\CAPTAINWisej\Captain\Enterpriselib\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2">
+      <HintPath>..\..\..\Applications\Wisej\CAPTAINWisej\CAPTAINWisej\Captain\Enterpriselib\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\Applications\Wisej\CAPTAINWisej\CAPTAINWisej\Captain\Enterpriselib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\Applications\Wisej\CAPTAINWisej\CAPTAINWisej\Captain\Enterpriselib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\..\Applications\Wisej\CAPTAINWisej\CAPTAINWisej\Captain\Enterpriselib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms">
+      <Aliases>swf</Aliases>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Captain.Common\Captain.Common.csproj">
+      <Project>{b2c71e34-31a8-4232-af2d-592a8ce93338}</Project>
+      <Name>Captain.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Captain.Database\Captain.Database.csproj">
+      <Project>{cc5ed93d-80a9-4dcf-a87f-c89addaf0bd0}</Project>
+      <Name>Captain.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterPage.resx">
+      <DependentUpon>MasterPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53370/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>tasklist /fi "imagename eq iisexpress.exe" |find ":" &gt; nul
+    if errorlevel 1 taskkill /f /im "iisexpress.exe"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
